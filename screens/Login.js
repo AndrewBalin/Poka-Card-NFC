@@ -1,8 +1,9 @@
 import {SafeAreaView, StyleSheet, Text, View, TextInput} from 'react-native';
 import { Button } from 'react-native-elements';
 import { Formik } from 'formik';
+import React from "react";
 
-export default class Login extends Component {
+class Login extends React.Component {
 
     login(props) {
         props.handleSubmit;
@@ -75,3 +76,5 @@ const styles = StyleSheet.create({
         color: "#b400ff",
     }
 });
+
+export default Login;

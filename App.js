@@ -1,17 +1,19 @@
-import {SafeAreaView, StyleSheet, Text, View, TextInput} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import MainApp from './screens/MainApp';
 import Login from './screens/Login';
+import React from "react";
+import 'react-native-gesture-handler';
 
 const Stack = createStackNavigator();
 
-export default class App extends Component{
+class App extends React.Component{
 
     render() {
       return (
           <NavigationContainer>
-              <Stack.Navigator>
+              <Stack.Navigator
+                  screenOptions={{ headerShown: false }}>
                   <Stack.Screen
                       name="Login"
                       component={Login}
@@ -26,35 +28,4 @@ export default class App extends Component{
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    justifyContent: "center",
-  },
-  input: {
-    height: 40,
-    marginTop: 12,
-    marginRight: 15,
-    marginLeft: 15,
-    borderWidth: 2,
-    borderColor: '#b400ff',
-    borderRadius: 20,
-    padding: 10,
-  },
-  login_text: {
-    textAlign: "center",
-    fontSize: 25,
-    color: "#b400ff"
-  },
-  input_button: {
-      marginTop: 15,
-      marginRight: 15,
-      marginLeft: 15,
-      height: 45,
-      padding: 10,
-      borderWidth: 2,
-      borderRadius: 20,
-      color: "#b400ff",
-  }
-});
+export default App;

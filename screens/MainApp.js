@@ -2,10 +2,13 @@ import { StatusBar } from 'expo-status-bar';
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import React from "react";
+import Card from './Card'
 
 const Tab = createBottomTabNavigator();
-export default class MainApp extends Component {
+
+class MainApp extends React.Component {
     HomeScreen() {
         return (
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -25,7 +28,6 @@ export default class MainApp extends Component {
 
     render() {
         return (
-            <NavigationContainer>
                 <Tab.Navigator
                     screenOptions={({route}) => ({
                         tabBarIcon: ({focused, color, size}) => {
@@ -33,22 +35,23 @@ export default class MainApp extends Component {
 
                             if (route.name === 'Мой пропуск') {
                                 iconName = focused ? 'cellphone-nfc' : 'cellphone-nfc-off';
-                            } else if (route.name === 'Settings') {
-                                iconName = focused ? 'ios-list-box' : 'ios-list';
+                            } else if (route.name === 'Приёмник') {
+                                iconName = focused ? 'access-point' : 'access-point-off';
+                            } else if (route.name === 'Профиль') {
+                                iconName = focused ? 'account' : 'account-outline';
                             }
 
                             // You can return any component that you like here!
-                            return <Ionicons name={iconName} size={size} color={color}/>;
+                            return <MaterialCommunityIcons name={iconName} size={size} color={color}/>;
                         },
                         tabBarActiveTintColor: 'tomato',
                         tabBarInactiveTintColor: 'gray',
                     })}
                     >
-                    <Tab.Screen name="Мой пропуск" component={this.HomeScreen}/>
-                    <Tab.Screen name="Приёмник" component={this.SettingsScreen}/>
-                    <Tab.Screen name="Профиль" component={this.HomeScreen}/>
+                    <Tab.Screen name="Мой пропуск" component={Card} options={{headerShown: false}}/>
+                    <Tab.Screen name="Приёмник" component={this.SettingsScreen} options={{headerShown: false}}/>
+                    <Tab.Screen name="Профиль" component={this.HomeScreen} options={{headerShown: false}}/>
                 </Tab.Navigator>
-            </NavigationContainer>
         );
     }
 }
@@ -59,3 +62,5 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
     },
 });
+
+export default MainApp;

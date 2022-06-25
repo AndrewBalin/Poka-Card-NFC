@@ -1,15 +1,15 @@
 {
   "expo": {
-    "name": "NFC_poka",
-    "slug": "NFC_poka",
-    "version": "1.0.0",
+    "name": "PokaCard",
+    "slug": "PocaCard",
+    "version": "0.0.5",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "dark",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#000022"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -23,11 +23,12 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
-      }
+        "backgroundColor": "#000022"
+      },
+      "package": "com.example"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/icon.png"
     }
   }
 }
