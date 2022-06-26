@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import React from "react";
 import Card from './Card'
+import Reader from "./Reader";
 
 const Tab = createBottomTabNavigator();
 
@@ -29,13 +30,19 @@ class MainApp extends React.Component {
     render() {
         return (
                 <Tab.Navigator
+
                     screenOptions={({route}) => ({
+                        tabBarStyle: {
+                            backgroundColor: "#000022",
+                            height: 60,
+
+                        },
                         tabBarIcon: ({focused, color, size}) => {
                             let iconName;
 
-                            if (route.name === 'Мой пропуск') {
+                            if (route.name === 'Мои карты') {
                                 iconName = focused ? 'cellphone-nfc' : 'cellphone-nfc-off';
-                            } else if (route.name === 'Приёмник') {
+                            } else if (route.name === 'Ридер') {
                                 iconName = focused ? 'access-point' : 'access-point-off';
                             } else if (route.name === 'Профиль') {
                                 iconName = focused ? 'account' : 'account-outline';
@@ -44,12 +51,12 @@ class MainApp extends React.Component {
                             // You can return any component that you like here!
                             return <MaterialCommunityIcons name={iconName} size={size} color={color}/>;
                         },
-                        tabBarActiveTintColor: 'tomato',
-                        tabBarInactiveTintColor: 'gray',
+                        tabBarActiveTintColor: '#E30174',
+                        tabBarInactiveTintColor: '#D9D9D9B2',
                     })}
                     >
-                    <Tab.Screen name="Мой пропуск" component={Card} options={{headerShown: false}}/>
-                    <Tab.Screen name="Приёмник" component={this.SettingsScreen} options={{headerShown: false}}/>
+                    <Tab.Screen name="Мои карты" component={Card} options={{headerShown: false}}/>
+                    <Tab.Screen name="Ридер" component={Reader} options={{headerShown: false}}/>
                     <Tab.Screen name="Профиль" component={this.HomeScreen} options={{headerShown: false}}/>
                 </Tab.Navigator>
         );

@@ -17,27 +17,11 @@ class Card extends React.Component {
         this.unid = text;
     }
 
-    async readNdef() {
-
-        try {
-            // register for the NFC tag with NDEF in it
-            await NfcManager.requestTechnology(NfcTech.Ndef);
-            // the resolved tag object will contain `ndefMessage` property
-            const tag = await NfcManager.getTag();
-            console.warn('Tag found', tag);
-            Alert.alert("NFC тэг:", tag)
-        } catch (ex) {
-            console.warn('Oops!', ex);
-        } finally {
-            // stop the nfc scanning
-            NfcManager.cancelTechnologyRequest();
-        }
-    }
 
 
     render() {
         return (
-            <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+            <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: "#000022"}}>
                 <Modal visible={false}>
                     <View>
                         <Text></Text>
@@ -45,7 +29,7 @@ class Card extends React.Component {
                 </Modal>
                 <View>
                     <Text>Мои карты</Text>
-                    <Button type='clear' onPress={this.readNdef} title={"Добавить карту?"}/>
+                    <Button type='clear' title={"Добавить карту?"}/>
                 </View>
 
             </View>

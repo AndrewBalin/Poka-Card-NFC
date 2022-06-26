@@ -1,7 +1,8 @@
-import {SafeAreaView, StyleSheet, Text, View, TextInput} from 'react-native';
+import {SafeAreaView, StyleSheet, Text, View, TextInput, Image} from 'react-native';
 import { Button } from 'react-native-elements';
 import { Formik } from 'formik';
 import React from "react";
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 class Login extends React.Component {
 
@@ -14,31 +15,50 @@ class Login extends React.Component {
 
         return (
             <SafeAreaView style={styles.container}>
+                <Image source={require('../assets/logo.png')} style={styles.logo_image}/>
                 <Formik initialValues={{login: '', password: '', remember: false}} onSubmit={(values) => {
                     console.log(values)
                 }}>
                     {(props) =>
                         (
                             <View>
-                                <TextInput
-                                    style={styles.input}
-                                    placeholder="Имя пользователя"
-                                    keyboardType="default"
-                                />
-                                <TextInput
-                                    style={styles.input}
-                                    placeholder="Пароль"
-                                    keyboardType="default"
-                                />
+                                <View  style={styles.input_section}>
+                                    <MaterialCommunityIcons name={'account'} size={50} color={'#E30174'} style={styles.input_icon}/>
+                                    <TextInput
+                                        style={styles.input}
+                                        placeholder="Логин"
+                                        keyboardType="default"
+                                    />
+                                </View>
+                                <View  style={styles.input_section}>
+                                    <MaterialCommunityIcons name={'key'} size={50} color={'#E30174'} style={styles.input_icon}/>
+                                    <TextInput
+                                        style={styles.input}
+
+                                        placeholder="Пароль"
+                                        keyboardType="default"
+                                    />
+                                </View>
                                 <Button
+                                    titleStyle={{
+                                        color: "white",
+                                        fontSize: 20,
+                                    }}
                                     title={"Войти"}
                                     onPress={() => this.login(props)}
                                     color={"#b400ff"}
-                                    type="outline"
                                     buttonStyle={styles.input_button}/>
                             </View>
                         )}
                 </Formik>
+                <Text style={styles.noclik_text}>
+                    Нет аккаунта?
+                    <Text style={styles.click_text}> Зарегистрируйся!</Text>
+                </Text>
+                <Text style={styles.noclik_text}>
+                    Лень регистрироваться?{'\n'}
+                    <Text style={styles.click_text}>Войди как гость!</Text>
+                </Text>
             </SafeAreaView>
         );
     }
@@ -47,18 +67,18 @@ class Login extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#000022',
         justifyContent: "center",
     },
     input: {
-        height: 40,
-        marginTop: 12,
-        marginRight: 15,
-        marginLeft: 15,
+        flex: 1,
+        height: 45,
         borderWidth: 2,
-        borderColor: '#b400ff',
+        borderColor: '#D9D9D9B2',
+        backgroundColor: '#D9D9D9B2',
         borderRadius: 20,
         padding: 10,
+        marginTop: 15
     },
     login_text: {
         textAlign: "center",
@@ -66,15 +86,44 @@ const styles = StyleSheet.create({
         color: "#b400ff"
     },
     input_button: {
-        marginTop: 15,
+        marginTop: 20,
         marginRight: 15,
         marginLeft: 15,
-        height: 45,
+        height: 50,
         padding: 10,
         borderWidth: 2,
         borderRadius: 20,
-        color: "#b400ff",
-    }
+        borderColor: "#E30174",
+        backgroundColor: "#E30174",
+        fontSize: 20,
+    },
+    input_section: {
+        flexDirection: 'row',
+        marginRight: 15,
+        marginLeft: 15,
+        justifyContent: 'center',
+        alignItems: 'center',
+
+    },
+    input_icon: {
+        padding: 10,
+    },
+    click_text: {
+        color: "#E30174",
+    },
+    noclik_text: {
+        fontSize: 15,
+        marginTop: 15,
+        color: "#fff",
+        textAlign: 'center',
+    },
+    logo_image: {
+        position: "absolute",
+        width: '20%',
+        resizeMode: "contain",
+        top: 10,
+        alignSelf: 'center',
+}
 });
 
 export default Login;
