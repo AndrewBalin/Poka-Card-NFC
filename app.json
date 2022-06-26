@@ -2,7 +2,7 @@
   "expo": {
     "name": "PokaCard",
     "slug": "PocaCard",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "dark",
@@ -21,14 +21,17 @@
       "supportsTablet": true
     },
     "android": {
+      "permissions": [
+        "NFC"
+      ],
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#000022"
       },
-      "package": "com.example"
+      "package": "com.andrewbalin"
     },
     "web": {
       "favicon": "./assets/icon.png"
-    }
+    },
   }
 }
