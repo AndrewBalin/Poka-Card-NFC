@@ -24,14 +24,11 @@
       "permissions": [
         "NFC"
       ],
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#000022"
-      },
+      "icon": "./assets/icon.png",
       "package": "com.andrewbalin"
     },
     "web": {
       "favicon": "./assets/icon.png"
-    },
+    }
   }
 }

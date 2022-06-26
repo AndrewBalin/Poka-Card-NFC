@@ -1,14 +1,29 @@
-import {SafeAreaView, StyleSheet, Text, View, TextInput, Image} from 'react-native';
+import {SafeAreaView, StyleSheet, Text, View, TextInput, Image, Alert} from 'react-native';
 import { Button } from 'react-native-elements';
 import { Formik } from 'formik';
 import React from "react";
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Profile from './Profile'
 
 class Login extends React.Component {
 
-    login(props) {
-        props.handleSubmit;
-        this.props.navigation.navigate('Main');
+    /*login(values) {
+        var prof = new Profile(values['login'], values['password'])
+        this.state = {
+            profile: prof
+        }
+        if(prof.join == true) {
+            this.props.navigation.navigate('Main', {prof: prof});
+        } else {
+            Alert.alert("Вход не выолнен", "Проверьте правильность введённых данных")
+        }
+    }*/
+    goToReg() {
+        this.props.navigation.navigate('Register')
+    }
+
+    goToMain() {
+        this.props.navigation.navigate('Main')
     }
 
     render() {
@@ -16,8 +31,10 @@ class Login extends React.Component {
         return (
             <SafeAreaView style={styles.container}>
                 <Image source={require('../assets/logo.png')} style={styles.logo_image}/>
-                <Formik initialValues={{login: '', password: '', remember: false}} onSubmit={(values) => {
+                <Formik initialValues={{login: '', password: ''}} onSubmit={(values) => {
                     console.log(values)
+                    //this.login(values)
+                    this.props.navigation.navigate('Main')
                 }}>
                     {(props) =>
                         (
@@ -28,15 +45,16 @@ class Login extends React.Component {
                                         style={styles.input}
                                         placeholder="Логин"
                                         keyboardType="default"
+                                        onChangeText={props.handleChange('login')}
                                     />
                                 </View>
                                 <View  style={styles.input_section}>
                                     <MaterialCommunityIcons name={'key'} size={50} color={'#E30174'} style={styles.input_icon}/>
                                     <TextInput
                                         style={styles.input}
-
                                         placeholder="Пароль"
                                         keyboardType="default"
+                                        onChangeText={props.handleChange('password')}
                                     />
                                 </View>
                                 <Button
@@ -45,17 +63,17 @@ class Login extends React.Component {
                                         fontSize: 20,
                                     }}
                                     title={"Войти"}
-                                    onPress={() => this.login(props)}
+                                    onPress={props.handleSubmit}
                                     color={"#b400ff"}
                                     buttonStyle={styles.input_button}/>
                             </View>
                         )}
                 </Formik>
-                <Text style={styles.noclik_text}>
+                <Text style={styles.noclik_text} onPress={this.goToReg}>
                     Нет аккаунта?
                     <Text style={styles.click_text}> Зарегистрируйся!</Text>
                 </Text>
-                <Text style={styles.noclik_text}>
+                <Text style={styles.noclik_text} onPress={this.goToMain}>
                     Лень регистрироваться?{'\n'}
                     <Text style={styles.click_text}>Войди как гость!</Text>
                 </Text>

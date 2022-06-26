@@ -4,28 +4,13 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import React from "react";
-import Card from './Card'
+import Card from './Card';
 import Reader from "./Reader";
+import ProfileScreen from "./Profile";
 
 const Tab = createBottomTabNavigator();
 
 class MainApp extends React.Component {
-    HomeScreen() {
-        return (
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <Text>Home!</Text>
-            </View>
-        );
-    }
-
-    SettingsScreen() {
-        return (
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <Text>Settings!</Text>
-            </View>
-        );
-    }
-
 
     render() {
         return (
@@ -56,7 +41,7 @@ class MainApp extends React.Component {
                     >
                     <Tab.Screen name="Мои карты" component={Card} options={{headerShown: false}}/>
                     <Tab.Screen name="Ридер" component={Reader} options={{headerShown: false}}/>
-                    <Tab.Screen name="Профиль" component={this.HomeScreen} options={{headerShown: false}}/>
+                    <Tab.Screen name="Профиль" component={ProfileScreen} options={{headerShown: false}}/>
                 </Tab.Navigator>
         );
     }

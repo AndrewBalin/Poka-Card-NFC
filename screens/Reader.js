@@ -17,11 +17,17 @@ function roughScale(x, base) {
 function UnidTake (cl) {
     if(cl.Unid != null) {
         return(
-            <Text>{cl.Unid}</Text>,
-            <Button title={'Сканировать ещё раз'} onPress={cl.readNdef()}/>
+            <View>
+                <Text>{cl.Unid}</Text>
+                <Button titleStyle={{
+                    color: "white",
+                    fontSize: 20,
+                }}
+                    title={'Сканировать ещё раз'} onPress={cl.readNdef()}/>
+            </View>
         );
     } else {
-        return(<Text>Приложите карту к сканнеру</Text>);
+        return(<Text style={{color: "white", fontSize: 20}}>Приложите карту к сканеру</Text>);
     }
 }
 
@@ -32,7 +38,7 @@ class Reader extends React.Component {
         this.readNdef()
     }
 
-    Unid = String;
+    Unid;
     async readNdef() {
 
         try {
