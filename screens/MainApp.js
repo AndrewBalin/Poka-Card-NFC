@@ -35,7 +35,6 @@ class MainApp extends React.Component {
                         tabBarStyle: {
                             backgroundColor: "#000022",
                             height: 60,
-
                         },
                         tabBarIcon: ({focused, color, size}) => {
                             let iconName;

@@ -4,7 +4,7 @@ import { Formik } from 'formik';
 import React from "react";
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-class Login extends React.Component {
+class Register extends React.Component {
 
     login(props) {
         props.handleSubmit;
@@ -35,6 +35,15 @@ class Login extends React.Component {
                                     <TextInput
                                         style={styles.input}
 
+                                        placeholder="E-mail"
+                                        keyboardType="default"
+                                    />
+                                </View>
+                                <View  style={styles.input_section}>
+                                    <MaterialCommunityIcons name={'key'} size={50} color={'#E30174'} style={styles.input_icon}/>
+                                    <TextInput
+                                        style={styles.input}
+
                                         placeholder="Пароль"
                                         keyboardType="default"
                                     />
@@ -51,14 +60,7 @@ class Login extends React.Component {
                             </View>
                         )}
                 </Formik>
-                <Text style={styles.noclik_text}>
-                    Нет аккаунта?
-                    <Text style={styles.click_text}> Зарегистрируйся!</Text>
-                </Text>
-                <Text style={styles.noclik_text}>
-                    Лень регистрироваться?{'\n'}
-                    <Text style={styles.click_text}>Войди как гость!</Text>
-                </Text>
+
             </SafeAreaView>
         );
     }
@@ -125,4 +127,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default Login;
+export default Register;
