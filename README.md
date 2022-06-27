@@ -6,6 +6,11 @@
 >P.S. На данный момент в приложении работают NFC-ридер и NFC-райтер, в дальнейшем будет реализовано корректное подключение к базе данных, вывод из неё информации о картах пользователя и их использовании
 ---
 
+![npm version](https://img.shields.io/badge/npm-v8.11.0-blue)
+![expo cli](https://img.shields.io/badge/expo%20-v5.4.11%20-green)
+![platforms](https://img.shields.io/badge/platforms-android-lightgrey)
+![platforms](https://img.shields.io/badge/tech-NFC%7CBlutooth-red)
+
 ## Для пользователей
 
 Актуальная версия приложения представлена в [релизах](https://github.com/AndrewBalin/NFC_poka/releases "Relises")
