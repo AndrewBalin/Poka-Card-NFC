@@ -11,6 +11,9 @@
 ![platforms](https://img.shields.io/badge/platforms-android-lightgrey)
 ![platforms](https://img.shields.io/badge/tech-NFC%7CBlutooth-red)
 
+* Developer - `Andrew Balin`
+* Disigner - `Anna Borodina`
+
 ## Для пользователей
 
 Актуальная версия приложения представлена в [релизах](https://github.com/AndrewBalin/NFC_poka/releases "Relises")
